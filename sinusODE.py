@@ -1,22 +1,24 @@
 #import numpy as np
+import matplotlib.pyplot as plt
 
 # init values
 y0 = 0 
 v0 = 1
-
-#def. array
-y = []
-y[0] = y0
-v = []
-v[0] = v0
-t = []
-t[0] = 0
+t0 = 0
+#time change and max time
 deltaT = 0.1
+maxT = 100
+#def. array
+y = [y0]
+v = [v0]
+t = [t0]
+
 
 #number of iter
-N = 100
+N = int(maxT / deltaT)
+print(N)
 #main loop
-for j in range(100):
+for j in range(N):
     y1 = deltaT * v[j] + y[j]
     v1 = -deltaT * y[j] + v[j]
     t1 = t[j] + deltaT
@@ -24,3 +26,5 @@ for j in range(100):
     y.append(y1)
     v.append(v1)
     t.append(t1)
+
+print(y)
