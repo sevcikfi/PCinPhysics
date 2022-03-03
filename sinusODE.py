@@ -27,4 +27,9 @@ for j in range(N):
     v.append(v1)
     t.append(t1)
 
-print(y)
+#print(y)
+#plt.scatter(t , y)
+plt.plot(t,y)
+plt.show()
+plt.xlabel("time t")
+plt.ylabel("distance y")
