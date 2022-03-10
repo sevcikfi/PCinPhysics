@@ -5,13 +5,18 @@ import matplotlib.pyplot as plt
 y0 = 0
 v0 = 1
 dt = 0.1
-maxt = 10
+maxt = 100
 
 def model(y, t):
     x, v = y
     return np.array([v, -x])
 
-y, t = ODE.ode_solve(model, [y0, v0], dt, maxt)
+y, t = ODE.ode_solve(model, [y0, v0],ODE.euler_2, dt, maxt)
+y2, t  = ODE.ode_solve(model, [y0, v0], dt=dt, maxt=maxt)
 
-plt.plot(t, y[:, 0])
+plt.plot(t, y2[:, 0], label = f"sinus Euler1 with step = {dt}")
+plt.plot(t, y[:, 0], label = f"sinus Euler2 with step = {dt}") 
+plt.xlabel("time t")
+plt.ylabel("distance y")
+plt.legend()
 plt.show()
