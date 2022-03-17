@@ -20,7 +20,7 @@ def lorenz(w, t):
 
 #own ODE solver
 #w, t = ODE.ode_solve(lorenz, (1,1,1), dt=0.01, maxt=100)
-t = np.linspace(10000, 100)
+t = np.arange(0,100,0.01)
 w = odeint(lorenz, [1,1,1], t)
 
 plt.figure()
