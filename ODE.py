@@ -2,9 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def model():
-    return
-
 def euler_1(model, y, t, dt):
     """
     ODE solver with Euler method 1.
@@ -23,7 +20,19 @@ def euler_2(model, y, t, dt):
     t1 = t + dt
     return y1, t1
 
-def ode_solve(model, initial_conditions, integrator=euler_1, dt=0.1, maxt=10):
+def runge_kutta_4(model, y, t, dt):
+    """ Fourth-order Runge-Kutta algoritm"""
+    k1 = model(y, t)
+    k2 = model(y + 0.5 * k1 * dt, t + 0.5 * dt)
+    k3 = model(y + 0.5 * k2 * dt, t + 0.5 * dt)
+    k4 = model(y + k3 * dt, t + dt)
+    
+    y1 = y + (k1 + 2 * k2 + 2 * k3 + k4) * dt / 6
+    t1 = t + dt
+    
+    return y1, t1
+
+def ode_solve(model, initial_conditions, integrator=runge_kutta_4, dt=0.1, maxt=10):
     """
     Numeric solution of a differential equation system
         
@@ -36,7 +45,7 @@ def ode_solve(model, initial_conditions, integrator=euler_1, dt=0.1, maxt=10):
     """
     #init
     yi = np.array(initial_conditions)
-    ti = 0
+    ti = 0.0
 
     y = [yi]
     t = [ti]
