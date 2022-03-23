@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 # random.randomint() <0,1)
 #        .uniform(a ,b) <a,b)
 
-
 #2D cords
 x = [0]
 y = [0]
