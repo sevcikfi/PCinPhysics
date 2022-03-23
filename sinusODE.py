@@ -31,6 +31,6 @@ for j in range(N):
 #plt.scatter(t , y)
 plt.plot(t,y, label="sinus")
 plt.plot(t, np.sin(t), label="numpy")
-plt.show()
 plt.xlabel("time t")
 plt.ylabel("distance y")
+plt.show()
