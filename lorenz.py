@@ -19,22 +19,15 @@ def lorenz(w, t):
     return np.array([dx, dy, dz])
 
 #own ODE solver
-#w, t = ODE.ode_solve(lorenz, (1,1,1), dt=0.01, maxt=100)
-t = np.arange(0,100,0.01)
-w = odeint(lorenz, [1,1,1], t)
+w, t = ODE.ode_solve(lorenz, (1,1,1),integrator=ODE.runge_kutta_4, dt=0.01, maxt=100)
+to = np.arange(0, 100, 0.01)
+wo = odeint(lorenz, [1,1,1], t)
 
 plt.figure()
-plt.plot(w[:,0], w[:,2])
+plt.plot(w[:,0], w[:,2], label="Runge-Kutta")
+plt.plot(wo[:,0], wo[:,2], label="odeint from Scipy")
 plt.xlabel("x")
 plt.ylabel("z")
 plt.title("Lorenz attractor")
+plt.legend()
 plt.show()
-
-# Thanks Samuel J. for this part of the code (plots a 3D interactive graph)
-try:                                                                                            
-    import plotly.express as px                                                                 
-    
-    fig = px.line_3d(x=w[:,0], y=w[:,1], z=w[:,2])
-    fig.show()
-except:
-    print("Missing Plotly module.")  
