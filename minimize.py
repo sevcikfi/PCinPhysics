@@ -1,5 +1,3 @@
-from mimetypes import init
-from pickle import NONE
 import random
 import numpy as np
 
