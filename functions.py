@@ -37,11 +37,13 @@ def Rosenbrock_function(X: np.ndarray, params=(1, 100)):
 
     return sum
 
-def metropolF(X):
+def metropolisF(X):
     x, y = X
     return x**4 + - x**2 + x + y**2
 
-
+def sinus(X):
+    x, y = X
+    return np.sin(x / 10) * np.sin(y / 10)
 
 if __name__ == "__main__":
     fnc = g

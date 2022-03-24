@@ -2,7 +2,7 @@ from matplotlib import cm
 import numpy as np
 import matplotlib.pyplot as plt
 
-from functions import metropolF
+import functions
 
 
 def random_direction_2d():
@@ -79,8 +79,11 @@ def minimaize_and_plot(fnc, box_size=1.5, num_contours=100, **kwargs):
 
 
 if __name__ == "__main__":
-    fnc = metropolF
-    minimaize_and_plot(fnc)
+    #fnc = functions.metropolisF
+    #minimaize_and_plot(fnc)
+
+    fnc = functions.sinus
+    minimaize_and_plot(fnc, box_size=10)
     #for i in range(1):
     #    path = metropolis(fnc, initial_condition=(2 * np.random.random() - 1, 2 * np.random.random() - 1))
     #    plt.plot(path[:,0], path[:,1])
