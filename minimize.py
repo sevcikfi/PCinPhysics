@@ -105,4 +105,4 @@ def minimize_adaptive(function, dimension=2, init_step=0.1, final_step=1E-6, ini
 
     print(f"Minimum adaptive step = {position}, function value = {f}, steps = {num_steps}")
 
-    return np.array(path)
+    return np.array(path), num_steps
