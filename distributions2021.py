@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from scipy.special import gamma
 
 from histogram import histogram
-import gauss
+import gauss as gaussian
 
 generator = np.random.default_rng()
 
