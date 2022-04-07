@@ -4,8 +4,17 @@ import matplotlib.pyplot as plt
 
 #rndGen = rnd.Generator
 
-def basicHistogram(data: np.ndarray, min_value=None, max_value=None, num_bins=100, normalize=False):
-
+def histogram(data: np.ndarray, min_value=None, max_value=None, num_bins=100, normalize=False):
+    """ Calculates a histogram of the input array.
+        Arguments:
+        data -- input data
+        min_value, max_value -- minimum and maximum value of the histogram 
+                              (if not specified, taken as the minimum and maximum value of the input dats)
+        num_bins -- final number of bins in the histogram
+        normalize -- True if the final values of the histogram shall be normalized to get probability density
+        Returns:
+        Position of the centres of bins, histogram
+    """
     if min_value is None:
         min_value = min(data)
     if max_value is None:
@@ -31,15 +40,13 @@ def basicHistogram(data: np.ndarray, min_value=None, max_value=None, num_bins=10
 
 
 if __name__ == "__main__":
-    #data = np.random.uniform(1, 6, 1000)
-    #data1 = np.random.uniform(1, 6, 1000)
     N = 100000
     m = 12
     data = np.zeros(N)
     for _ in range(m):
         data += np.random.random(N)
     
-    bins, vals = basicHistogram(data)
+    bins, vals = histogram(data)
     plt.plot(bins, vals)
     plt.plot(bins-(m/2), vals)
     #Gaus
