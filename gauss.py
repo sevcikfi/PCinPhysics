@@ -6,7 +6,7 @@ import histogram
 def gaussian_distribution(x):
     return 1 / np.sqrt(2 * np.pi) * np.exp(-x**2 / 2)
 
-def generator_rand(N=1):
+def generator_hit_and_miss(N=1):
     while True:
         x = 12 * np.random.random() - 6
         y = 0.5 * np.random.random()
@@ -26,7 +26,7 @@ if __name__ == "__main__":
         data += np.random.random(N)
     
     data_clt = [generator_clt() for _ in range(N)]
-    data_rnd = [generator_rand() for _ in range(N)]
+    data_rnd = [generator_hit_and_miss() for _ in range(N)]
 
     bins, vals = histogram.basicHistogram(data, normalize=True)
     plt.plot(bins-(m/2), vals)

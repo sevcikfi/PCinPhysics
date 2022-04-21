@@ -68,7 +68,7 @@ def gaussian_generator_clt(num_values=1000000):
 
 def gaussian_generator_hm(num_values=1000000):
     """ Histogram of numbers from the Gaussian distribution generated using the hit-and-miss method """
-    data = [gaussian.generator_hm() for _ in range(num_values)]
+    data = [gaussian.generator_hit_and_miss() for _ in range(num_values)]
 
     plot_histogram(data, "Gaussovské rozdělení (Hit-And-Miss)", gaussian.gaussian_distribution, normalize=True) 
 
