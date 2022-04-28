@@ -20,15 +20,20 @@ def hyper_square_for_funcH():
 def integration_Nd(function=None, min_value=None, max_value=None, num_values=10000, dist_space_func=None):
     hits = 0
     sum = 0
+
     for _ in range(num_values):
-        if dist_space_func():
+        x, y , v , w = np.random.rand(4)
+        if (x - 0.5)**2 + (y - 0.5)**2 + (v - 0.5)**2 + (w - 0.5)**2 <= 0.25:
             hits += 1
-            sum = funcH
+            sum += np.sin(np.sqrt(np.log(x + y + v + w + 2)))
+        #if dist_space_func():
+        #    hits += 1
+        #    sum = funcH
             
     volume = hits / num_values
     intergral = sum / hits * volume
 
-    return integral
+    return intergral
 
 
 
