@@ -1,6 +1,13 @@
 #Python
 __pycache__/
 
+#LaTeX
+*.aux
+*.log
+*.pdf
+*.synctex.gz
+*.toc
+
 #mics
 *.zip
 *.rar
